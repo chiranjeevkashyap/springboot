@@ -2,6 +2,7 @@ package com.chiranjeevkashyap.springboot.controllers;
 
 import com.chiranjeevkashyap.springboot.dto.EmployeeDTO;
 import com.chiranjeevkashyap.springboot.services.EmployeeService;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -30,12 +31,12 @@ public class EmployeeController {
     }
 
     @PostMapping
-    public ResponseEntity<EmployeeDTO> save(@RequestBody EmployeeDTO employeeEntity) {
+    public ResponseEntity<EmployeeDTO> save(@RequestBody @Valid EmployeeDTO employeeEntity) {
         return new ResponseEntity<>(service.save(employeeEntity), HttpStatus.CREATED);
     }
 
     @PutMapping(path = "{employeeId}")
-    public ResponseEntity<EmployeeDTO> updateEmployee(@PathVariable(name = "employeeId") Long id, @RequestBody EmployeeDTO employeeDTO) {
+    public ResponseEntity<EmployeeDTO> updateEmployee(@PathVariable(name = "employeeId") Long id, @RequestBody @Valid EmployeeDTO employeeDTO) {
         return ResponseEntity.ok(service.updateEmployee(id, employeeDTO));
     }
 
