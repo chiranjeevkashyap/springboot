@@ -7,8 +7,9 @@ import java.util.List;
 
 public class EmployeeRoleValidator implements ConstraintValidator<EmployeeRoleValidation, String> {
     @Override
-    public boolean isValid(String s, ConstraintValidatorContext constraintValidatorContext) {
+    public boolean isValid(String role, ConstraintValidatorContext constraintValidatorContext) {
+        if (role == null) return false;
         List<String> roles = List.of("ADMIN", "USER");
-        return roles.contains(s);
+        return roles.contains(role);
     }
 }

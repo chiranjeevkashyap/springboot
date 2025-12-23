@@ -1,6 +1,8 @@
 package com.chiranjeevkashyap.springboot.controllers;
 
+import com.chiranjeevkashyap.springboot.advices.ResponseBody;
 import com.chiranjeevkashyap.springboot.dto.EmployeeDTO;
+import com.chiranjeevkashyap.springboot.exceptions.ResourceNotFoundException;
 import com.chiranjeevkashyap.springboot.services.EmployeeService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
@@ -20,9 +22,9 @@ public class EmployeeController {
     }
 
     @GetMapping
-    public ResponseEntity<List<EmployeeDTO>> findAll() {
+    public ResponseEntity<ResponseBody<?>> findAll() {
         List<EmployeeDTO> employees = service.findAll();
-        return employees.isEmpty() ? ResponseEntity.notFound().build() : ResponseEntity.ok(employees);
+        return employees.isEmpty() ? ResponseEntity.notFound().build() : ResponseEntity.ok(new ResponseBody<>(employees));
     }
 
     @GetMapping(path = "{employeeId}")
@@ -36,8 +38,8 @@ public class EmployeeController {
     }
 
     @PutMapping(path = "{employeeId}")
-    public ResponseEntity<EmployeeDTO> updateEmployee(@PathVariable(name = "employeeId") Long id, @RequestBody @Valid EmployeeDTO employeeDTO) {
-        return ResponseEntity.ok(service.updateEmployee(id, employeeDTO));
+    public ResponseEntity<ResponseBody<?>> updateEmployee(@PathVariable(name = "employeeId") Long id, @RequestBody @Valid EmployeeDTO employeeDTO) {
+        return ResponseEntity.ok(new ResponseBody<>(service.updateEmployee(id, employeeDTO)));
     }
 
     @DeleteMapping(path = "{employeeId}")
