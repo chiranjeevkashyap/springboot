@@ -1,4 +1,4 @@
-package com.chiranjeevkashyap.springboot.entities.commerce;
+package com.chiranjeevkashyap.springboot.entities;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
@@ -15,7 +15,7 @@ import java.time.LocalDate;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class EmployeeEntity {
+public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;

@@ -1,7 +1,7 @@
 package com.chiranjeevkashyap.springboot.services;
 
 import com.chiranjeevkashyap.springboot.dto.EmployeeDTO;
-import com.chiranjeevkashyap.springboot.entities.commerce.EmployeeEntity;
+import com.chiranjeevkashyap.springboot.entities.Employee;
 import com.chiranjeevkashyap.springboot.exceptions.ResourceNotFoundException;
 import com.chiranjeevkashyap.springboot.repositories.EmployeeRepository;
 import org.modelmapper.ModelMapper;
@@ -25,10 +25,10 @@ public class EmployeeService {
     }
 
     public List<EmployeeDTO> findAll() {
-        List<EmployeeEntity> employeeEntities = repository.findAll();
+        List<Employee> employeeEntities = repository.findAll();
         return employeeEntities
                 .stream()
-                .map(employeeEntity -> mapper.map(employeeEntity, EmployeeDTO.class))
+                .map(employee -> mapper.map(employee, EmployeeDTO.class))
                 .collect(Collectors.toList());
     }
 
@@ -38,15 +38,15 @@ public class EmployeeService {
     }
 
     public EmployeeDTO save(EmployeeDTO employeeDTO) {
-        EmployeeEntity employeeEntity = mapper.map(employeeDTO, EmployeeEntity.class);
-        return mapper.map(repository.save(employeeEntity), EmployeeDTO.class);
+        Employee employee = mapper.map(employeeDTO, Employee.class);
+        return mapper.map(repository.save(employee), EmployeeDTO.class);
     }
 
     public EmployeeDTO updateEmployee(Long id, EmployeeDTO employeeDTO) {
-        EmployeeEntity employeeEntity = mapper.map(employeeDTO, EmployeeEntity.class);
+        Employee employee = mapper.map(employeeDTO, Employee.class);
         isEmployeeExists(id);
-        employeeEntity.setId(id);
-        return mapper.map(repository.save(employeeEntity), EmployeeDTO.class);
+        employee.setId(id);
+        return mapper.map(repository.save(employee), EmployeeDTO.class);
     }
 
     public boolean deleteEmployee(Long id) {
@@ -57,16 +57,16 @@ public class EmployeeService {
 
     public EmployeeDTO updatePartialEmployee(Long id, Map<String, Object> updates) {
         isEmployeeExists(id);
-        EmployeeEntity employeeEntity = repository.findById(id).get();
+        Employee employee = repository.findById(id).get();
         updates.forEach((field, value) -> {
             System.out.println("Updating field: " + field + " with value: " + value);
-            Field fieldToBeUpdated = ReflectionUtils.findField(EmployeeEntity.class, field);
+            Field fieldToBeUpdated = ReflectionUtils.findField(Employee.class, field);
             if (fieldToBeUpdated != null) {
                 fieldToBeUpdated.setAccessible(true);
-                ReflectionUtils.setField(fieldToBeUpdated, employeeEntity, value);
+                ReflectionUtils.setField(fieldToBeUpdated, employee, value);
             }
         });
-        EmployeeEntity savedEntity = repository.save(employeeEntity);
+        Employee savedEntity = repository.save(employee);
         return mapper.map(savedEntity, EmployeeDTO.class);
     }
 

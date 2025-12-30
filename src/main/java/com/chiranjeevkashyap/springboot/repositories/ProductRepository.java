@@ -1,6 +1,6 @@
 package com.chiranjeevkashyap.springboot.repositories;
 
-import com.chiranjeevkashyap.springboot.entities.commerce.ProductEntity;
+import com.chiranjeevkashyap.springboot.entities.Product;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -12,21 +12,21 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public interface ProductRepository extends JpaRepository<ProductEntity, Long> {
-    List<ProductEntity> findByTitle(String s);
+public interface ProductRepository extends JpaRepository<Product, Long> {
+    List<Product> findByTitle(String s);
 
-    List<ProductEntity> findByCreatedAtAfter(LocalDateTime of);
+    List<Product> findByCreatedAtAfter(LocalDateTime of);
 
-    List<ProductEntity> findByQuantityAndPrice(int i, BigDecimal i1);
+    List<Product> findByQuantityAndPrice(int i, BigDecimal i1);
 
-    Optional<ProductEntity> findByTitleAndPrice(String title, BigDecimal price);
+    Optional<Product> findByTitleAndPrice(String title, BigDecimal price);
 
-    @Query("select p from ProductEntity p where p.sku = ?1 and p.price = ?2")
-    Optional<ProductEntity> findBySkuAndPrice(String sku, BigDecimal price);
+    @Query("select p from Product p where p.sku = ?1 and p.price = ?2")
+    Optional<Product> findBySkuAndPrice(String sku, BigDecimal price);
 
-    List<ProductEntity> findByOrderByPrice();
+    List<Product> findByOrderByPrice();
 
-    List<ProductEntity> findByOrderByQuantity();
+    List<Product> findByOrderByQuantity();
 
-    List<ProductEntity> findBy(Sort sort);
+    List<Product> findBy(Sort sort);
 }

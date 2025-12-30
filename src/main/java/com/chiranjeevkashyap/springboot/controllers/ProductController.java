@@ -1,6 +1,6 @@
 package com.chiranjeevkashyap.springboot.controllers;
 
-import com.chiranjeevkashyap.springboot.entities.commerce.ProductEntity;
+import com.chiranjeevkashyap.springboot.entities.Product;
 import com.chiranjeevkashyap.springboot.exceptions.ResourceNotFoundException;
 import com.chiranjeevkashyap.springboot.repositories.ProductRepository;
 import org.springframework.http.ResponseEntity;
@@ -20,8 +20,8 @@ public class ProductController {
     }
 
     @GetMapping
-    public ResponseEntity<List<ProductEntity>> findAll() {
-        List<ProductEntity> products = productRepository.findAll();
+    public ResponseEntity<List<Product>> findAll() {
+        List<Product> products = productRepository.findAll();
         if (products.isEmpty()) {
             throw new ResourceNotFoundException("no products available.");
         }

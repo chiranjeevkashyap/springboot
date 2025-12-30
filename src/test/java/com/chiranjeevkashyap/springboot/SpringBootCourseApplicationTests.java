@@ -1,6 +1,6 @@
 package com.chiranjeevkashyap.springboot;
 
-import com.chiranjeevkashyap.springboot.entities.commerce.ProductEntity;
+import com.chiranjeevkashyap.springboot.entities.Product;
 import com.chiranjeevkashyap.springboot.repositories.ProductRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,20 +20,20 @@ class SpringBootCourseApplicationTests {
 
     @Test
     void testRepository() {
-        ProductEntity productEntity = ProductEntity.builder()
+        Product product = Product.builder()
                 .sku("ASH-5KG-RIC")
                 .price(BigDecimal.valueOf(210))
                 .title("Ashirvaad Select Basmati Rice 5kg")
                 .quantity(130)
                 .build();
-        ProductEntity savedEntity = productRepository.save(productEntity);
+        Product savedEntity = productRepository.save(product);
         System.out.println(savedEntity);
     }
 
     @Test
     void getRepository() {
-        List<ProductEntity> productEntityList = productRepository.findAll();
-        System.out.println(productEntityList);
+        List<Product> productList = productRepository.findAll();
+        System.out.println(productList);
     }
 
     @Test
@@ -49,7 +49,7 @@ class SpringBootCourseApplicationTests {
 
     @Test
     void repositoryTest() {
-        List<BigDecimal> list = productRepository.findByOrderByPrice().stream().map(ProductEntity::getPrice).toList();
+        List<BigDecimal> list = productRepository.findByOrderByPrice().stream().map(Product::getPrice).toList();
         System.out.println(list);
     }
 }
