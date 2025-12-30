@@ -1,6 +1,6 @@
 package com.chiranjeevkashyap.springboot.repositories;
 
-import com.chiranjeevkashyap.springboot.entities.ProductEntity;
+import com.chiranjeevkashyap.springboot.entities.commerce.ProductEntity;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

@@ -1,7 +1,7 @@
 package com.chiranjeevkashyap.springboot.services;
 
 import com.chiranjeevkashyap.springboot.dto.EmployeeDTO;
-import com.chiranjeevkashyap.springboot.entities.EmployeeEntity;
+import com.chiranjeevkashyap.springboot.entities.commerce.EmployeeEntity;
 import com.chiranjeevkashyap.springboot.exceptions.ResourceNotFoundException;
 import com.chiranjeevkashyap.springboot.repositories.EmployeeRepository;
 import org.modelmapper.ModelMapper;

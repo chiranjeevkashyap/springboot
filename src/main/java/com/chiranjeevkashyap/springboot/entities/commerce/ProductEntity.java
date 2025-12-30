@@ -1,4 +1,4 @@
-package com.chiranjeevkashyap.springboot.entities;
+package com.chiranjeevkashyap.springboot.entities.commerce;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

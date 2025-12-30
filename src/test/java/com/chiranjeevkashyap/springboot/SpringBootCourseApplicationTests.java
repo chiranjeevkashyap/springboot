@@ -1,6 +1,6 @@
 package com.chiranjeevkashyap.springboot;
 
-import com.chiranjeevkashyap.springboot.entities.ProductEntity;
+import com.chiranjeevkashyap.springboot.entities.commerce.ProductEntity;
 import com.chiranjeevkashyap.springboot.repositories.ProductRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

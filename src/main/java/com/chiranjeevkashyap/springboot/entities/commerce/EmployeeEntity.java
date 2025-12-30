@@ -1,4 +1,4 @@
-package com.chiranjeevkashyap.springboot.entities;
+package com.chiranjeevkashyap.springboot.entities.commerce;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
