@@ -9,6 +9,7 @@ VALUES ('Amit Sharma', 'Male', '1985-03-12', 'amit.sharma85@gmail.com', 'A_POSIT
        ('Ananya Rao', 'Female', '1997-04-21', 'ananya.rao97@gmail.com', 'AB_NEGATIVE'),
        ('Vikram Desai', 'Male', '1980-08-05', 'vikram.desai80@gmail.com', 'O_POSITIVE'),
        ('Kavita Nair', 'Female', '1986-02-11', 'kavita.nair86@gmail.com', 'A_POSITIVE');
+
 INSERT INTO SPRING.PRODUCTS (PRICE, QUANTITY, SKU, TITLE)
 VALUES (50, 100, 'PAR-100G-BIS', 'Parle-G Biscuits 100g'),
        (45, 200, 'AMU-500ML-MLK', 'Amul Taaza Milk 500ml'),
@@ -20,3 +21,15 @@ VALUES (50, 100, 'PAR-100G-BIS', 'Parle-G Biscuits 100g'),
        (15, 500, 'LIF-100G-SOP', 'Lifebuoy Soap 100g'),
        (35, 220, 'BRI-400G-BRD', 'Britannia Bread 400g'),
        (90, 140, 'RED-250G-TEA', 'Red Label Tea 250g');
+
+INSERT INTO SPRING.DOCTORS (NAME, SPECIALIZATION, EMAIL)
+VALUES ('Dr. Arjun Mehta', 'Cardiologist', 'arjun.mehta@cityhospital.com'),
+       ('Dr. Priya Sharma', 'Dermatologist', 'priya.sharma@skinclinic.com'),
+       ('Dr. Rohan Kapoor', 'Orthopedic Surgeon', 'rohan.kapoor@medicare.org'),
+       ('Dr. Sneha Iyer', 'Pediatrician', 'sneha.iyer@childcarehospital.com'),
+       ('Dr. Vikram Singh', 'Neurologist', 'vikram.singh@neurocenter.com'),
+       ('Dr. Ananya Gupta', 'Gynecologist', 'ananya.gupta@womenshealth.org'),
+       ('Dr. Karan Malhotra', 'Oncologist', 'karan.malhotra@cancerinstitute.com'),
+       ('Dr. Meera Nair', 'Psychiatrist', 'meera.nair@mindcareclinic.com'),
+       ('Dr. Rajesh Khanna', 'General Physician', 'rajesh.khanna@familyhealth.com'),
+       ('Dr. Divya Patel', 'Endocrinologist', 'divya.patel@endocrinecenter.com');
